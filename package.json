@@ -1,0 +1,46 @@
+{
+  "name": "dom-logger",
+  "version": "1.2.2",
+  "description": "Logs DOM events",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sempostma/dom-logger"
+  },
+  "homepage": "https://github.com/sempostma/dom-logger",
+  "bugs": {
+    "email": "dom-logger@esstudio.nl",
+    "url": "https://github.com/sempostma/dom-logger/issues"
+  },
+  "files": [
+    "dist/",
+    "LICENSE"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "start": "tsc --watch",
+    "prepublish": "npm run build",
+    "test": "jest",
+    "lint": "tslint -c tslint.json 'src/**/*.ts'",
+    "lint:fix": "tslint --fix -c tslint.json 'src/**/*.ts'"
+  },
+  "keywords": [
+    "dom-logger",
+    "keyboard",
+    "shortcut",
+    "react",
+    "hook",
+    "hotkey"
+  ],
+  "author": "Sem Postma",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/lodash": "^4.14.165",
+    "tslint": "^6.0.0",
+    "typescript": "^3.8.2"
+  },
+  "dependencies": {
+    "lodash": "^4.17.20"
+  }
+}
