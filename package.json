@@ -1,6 +1,6 @@
 {
   "name": "web-events-logger",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "Logs DOM events",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
