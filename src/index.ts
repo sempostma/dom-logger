@@ -225,7 +225,8 @@ class Logger {
 
   private onWindowError: typeof window.onerror = (message, source, lineno, colno, error: Error | undefined) => {
     this.error(message, source, lineno, colno, error);
-    if (error instanceof Error) { this.captureError(error); } else if (this.debug || isProduction) {
+    if (error instanceof Error) { this.captureError(error); }
+    else  {
       if (this.sendExceptions) {
         this.queue.push({
           eventType: "exception",
@@ -241,7 +242,7 @@ class Logger {
         });
         this.report();
       }
-      return this.onerror?.call(window, message, source, lineno, colno, error);
+      return this.onerror?.call(window, message, source, lineno, colno, error)
     }
   }
 

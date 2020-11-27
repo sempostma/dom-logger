@@ -7,7 +7,7 @@ Logs DOM events
 ```javascript
 import Logger from 'web-events-logger'
 
-const logger = new Logger({ url: '/my-logging-endpoint', debug: true /* logging is disabled in development by default */ })
+const logger = new Logger({ url: '/my-logging-endpoint' })
 
 logger.captureError(new Error('Huh?'))
 
