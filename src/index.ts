@@ -49,8 +49,6 @@ interface Options {
   send?: (data: LoggingData) => any
 }
 
-const isProduction = get(window, "process.env.NODE_ENV") === "production";
-
 class Logger {
   public readonly url: string;
   public readonly throttleTime: number;
@@ -85,13 +83,12 @@ class Logger {
     this.getSessionMeta = getSessionMeta;
     this.send = send;
     window.addEventListener("beforeunload", this.flush);
-    if (isProduction || debug) {
-      if (sendInformation) { console.log = this.onLog; }
-      if (sendWarnings) { console.warn = this.onWarn; }
-      if (sendErrors) { console.error = this.onError; }
-      if (sendExceptions) { window.onerror = this.onWindowError; }
-      if (sendCSPViolations) { document.addEventListener("securitypolicyviolation", this.handleCspViolation); }
-    }
+
+    if (sendInformation) { console.log = this.onLog; }
+    if (sendWarnings) { console.warn = this.onWarn; }
+    if (sendErrors) { console.error = this.onError; }
+    if (sendExceptions) { window.onerror = this.onWindowError; }
+    if (sendCSPViolations) { document.addEventListener("securitypolicyviolation", this.handleCspViolation); }
   }
 
   public logInformation = (name: string, message: string, eventMeta: object) => {
